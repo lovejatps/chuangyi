@@ -9,7 +9,9 @@ centos 系统
 ◆输入：yum -y list java* 。
 yum -y install java-1.7.0-openjdk* ，以yum库中java-1.7.0为例。 
 
-配置环境变量
+#配置环境变量
+
+
 使用vim /etc/profile编辑profile文件
 在/etc/profile底部加入如下内容
 JAVA_HOME=/usr/java/jdk1.8.0_25
