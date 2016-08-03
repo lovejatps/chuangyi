@@ -112,4 +112,58 @@ service iptables restart
 ok，，可以浏览器访问了。   
 
 
+#用户yum安装版本太低！！！！！！所有我们使用以下手动安装 
+
+摘要
+CentOS 7 安装Nginx-1.9.2
+「个人记录，肯定有理解错误和理解不透的地方，小白总是有个成长的过程，希望大家多多指教。」
+
+#一、准备工作：
+
+#1、安装必备工具：
+
+
+$ yum -y install gcc gcc-c++ autoconf automake  
+
+$ yum -y install zlib zlib-devel openssl openssl-devel pcre-devel   
+
+$ sudo yum install -y zlib-devel  
+
+说明：
+pcre: 用来作地址重写的功能。   
+
+zlib：nginx 的gzip模块,传输数据打包，省流量（但消耗资源）。   
+ 
+openssl：提供ssl加密协议。   
+
+
+#2、解压编译：
+
+$ tar -zxvf nginx-1.9.2.tar.gz
+
+$ cd nginx-1.9.2/
+
+$ ./configure \
+
+#上面的参数的作用可以通过--help来查看下文附加1中有提供
+
+$ ./configure --help
+
+
+  nginx path prefix: "/usr/local/nginx"
+  nginx binary file: "/usr/local/nginx/sbin/nginx"
+  nginx configuration prefix: "/usr/local/nginx/conf"
+  nginx configuration file: "/usr/local/nginx/conf/nginx.conf"
+  nginx pid file: "/usr/local/nginx/logs/nginx.pid"
+  nginx error log file: "/usr/local/nginx/logs/error.log"
+  nginx http access log file: "/usr/local/nginx/logs/access.log"
+  nginx http client request body temporary files: "client_body_temp"
+  
+#3、安装:
+
+$ make && make install
+
+#4、启动：
+
+$ nginx -c /etc/nginx/nginx.conf
 
