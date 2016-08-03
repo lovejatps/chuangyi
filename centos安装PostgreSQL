@@ -1,1 +1,25 @@
 更新源 sudo yum update
+
+
+比如我要在centos 7 安装9.5的pg,
+
+yum install http://yum.postgresql.org/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-2.noarch.rpm
+
+yum install postgresql95-server postgresql95-contrib (contrib安装第三方包和分布式包，可以不安)
+
+/usr/pgsql-9.5/bin/postgresql95-setup initdb  (初始化库)
+
+/bin/systemctl start postgresql-9.5.service （启动）
+
+ 
+进入数据库
+
+su postgres
+
+psql
+ 
+\l 查看所有库
+
+\q 退出
+
+（数据目录自动安装在/var/lib/pgsql/9.5/data）
