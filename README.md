@@ -167,3 +167,16 @@ $ make && make install
 
 $ nginx -c /etc/nginx/nginx.conf
 
+#修改CentOS 7 源安装nginx
+cd /etc/yum.repos.d/
+wget  http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+yum makecache
+#建立nginx的yum仓库
+ rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm
+ 
+#下载并安装nginx
+ yum install nginx
+#4启动nginx服务
+systemctl start nginx
+
+
